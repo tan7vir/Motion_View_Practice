@@ -1,0 +1,163 @@
+<!-- lerning how to add video to the background of a section. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exercise #2 || Hero section with video background</title>
+
+	<!-- Reset -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+
+	<style>
+		html {
+			font-size: 16px;
+			font-family: 'Figtree', sans-serif;
+			line-height: 1.5;
+		}
+
+		img {
+			display: block;
+		}
+
+		#hero {
+			height: 65vh;
+			color: white;
+			position: relative; 
+		}
+
+		#hero::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background:  rgba(23, 28, 40, 0.8);
+			z-index: -1;
+		}
+
+		.container {
+			width: 80%;
+			margin: 0 auto;
+			height: 100%;
+			padding: 4rem 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+
+        .contain {
+            width: 80%;
+			margin: 0 auto;
+            height: 35vh;
+			padding: 4rem 0;
+			display: flex;
+			justify-content: left;
+			align-items: center;
+        }
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+		}
+
+		nav ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			gap: 3rem;
+		}
+
+		nav ul a {
+			text-decoration: none;
+			color: white;
+            transition: 0.2s;
+		}
+
+        nav ul a:hover {
+            color:  #FFBF1A;
+        }
+
+		h1 {
+			font-size: 4.5rem;
+			font-weight: 700;
+			max-width: 80%;
+			line-height: 1.2;
+		}
+
+		h1 span {
+			color: #FFBF1A;
+		}
+
+        .logo {
+            background: url('https://img.icons8.com/cotton/64/cat--v4.png') no-repeat center center / contain;
+            width: 50px;
+            height: 50px;
+            transition: 0.2s;
+        }
+
+        .logo:hover {
+            background: url('https://img.icons8.com/pastel-glyph/64/cat--v1.png') no-repeat center center / contain;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: top center; 
+            z-index: -2;
+        }
+        
+		/* Air */
+	</style>
+</head>
+<body>
+	<section id="hero">
+		<div class="container">
+			<!-- Air -->
+             <video autoplay loop muted>
+                <source src="\Video\video-01.webm" type="video/webm">
+             </video>
+
+			<header>
+                <div class="logo">
+                    <!-- Air -->
+                    <!-- Changing the logo on hover -->
+                </div>
+
+				<nav>
+					<ul>
+						<li><a href="#">Food</a></li>
+						<li><a href="#">Variety</a></li>
+						<li><a href="#">Order</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
+
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <div>
+                  <h1>  
+                    <span> Best Food</span> in one <span>CLICK</span>.</br>For your <span>PET.</span>
+                  </h1>
+                  <!-- <img width="80" height="80" src="https://img.icons8.com/external-smashingstocks-circular-smashing-stocks/65/external-cat-food-international-cat-day-smashingstocks-circular-smashing-stocks-2.png" alt="external-cat-food-international-cat-day-smashingstocks-circular-smashing-stocks-2"/> -->
+                </div>
+              </div>
+		</div>
+	</section>
+    <div class="contain">
+        <h1>Offer On <span>GOING.</span></h1>
+    </div>
+</body>
+</html>
