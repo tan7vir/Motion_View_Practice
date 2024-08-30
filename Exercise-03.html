@@ -209,12 +209,61 @@
 			transform: scale(1);
 		} 
 
+		.loader-container {
+			position: fixed;
+			inset: 0;
+			background-color: #fff;
+			display: grid;
+			place-content: center;
+			z-index: 999;		
+			opacity: 1;
+		}
+
+		.loader {
+			height: 6rem;
+			width: 6rem;
+			border: 0.5rem solid #E54949;
+			border-radius: 50%;
+			border-left-color: transparent;
+			animation: 1s linear infinite loader;
+		}
+
+		.loader-container.hidden {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		#page-content.visible {
+			opacity: 1;
+		}
+
+		#page-content {
+			opacity: 0;
+			transition: opacity var(--def-transition-duration);
+		}
+
+
+		/* Animations */
+
+		@keyframes loader {
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
 
 		/* Air */
 	</style>
 </head>
 <body>
-	<section>
+	<div class="loader-container">
+		<div class="loader">
+
+		</div>
+	</div>
+	<section id="page-content">
+
 		<header>
 			<p class="small">Take a trip</p>
 			<h2>Destinations Unveiled: Inspiring Journeys Await</h2>
@@ -349,6 +398,18 @@
 				</figure>
 			</li>
 		</ul>
+		
 	</section>
+
+	<script>
+		const loaderContainer = document.querySelector('.loader-container');
+		const pageContent = document.querySelector('#page-content');
+		
+		window.addEventListener('load', () => {
+			loaderContainer.classList.add('hidden')
+			pageContent.classList.add('visible')
+		})
+	</script>
+
 </body>
 </html>
