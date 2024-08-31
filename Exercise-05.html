@@ -20,22 +20,80 @@
 			line-height: 1.5;
 		}
 
-        #loading-screen {
+        /* #loading-screen {
             background-color: #FFFBF1;
-			height: 100dvh;
 			display: grid;
 			place-content: center;
 			text-align: center;
 			gap: 2rem;
 			color: #62312d;
-        }
+			z-index: -2;
+        } */
+
+		svg text.text-body {
+			font-size: 1em;
+			width: 20em;
+			font-weight: 500;
+			fill: rgb(122, 58, 186);
+			z-index: -1;
+			stroke: rgb(122, 58, 186);
+			stroke-width: 0.03em;
+			animation: 4s infinite alternate loading;
+		}
+
+		.loading-SVG {
+			animation: 4s infinite alternate loading-svg;
+		}
+
+
+		@keyframes loading-svg {
+			0% {
+				transform : scale(0.8);
+			}
+
+			50% {
+				transfrom : scale(1);
+			}
+
+			80%, 100% {
+				transfrom : scale(1.2);
+			}
+		}
+
+		@keyframes loading {
+			0% {
+				fill: transparent;
+				stroke: rgb(159, 140, 179);
+				stroke-dashoffset: 0%;
+				stroke-dasharray: 0 5%;
+			}
+
+			50% {
+				fill: rgb(122, 58, 186);
+				stroke: rgb(122, 58, 186);
+			}
+
+			80%, 100% {
+				stroke: rgb(122, 58, 186);
+				fill: rgb(122, 58, 186);
+				stroke-dashoffset: 25%;
+				stroke-dasharray: 5% 0;
+			}
+		}
 
         /* Air */
 	</style>
 </head>
 <body>
     <div id="loading-screen">
-        <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/cat-footprint.png" alt="cat-footprint"/>
+        <svg viewBox = '0 0 400 160' class="loading-SVG">
+			<text x="50%" y="50%" dy=".32em" text-anchor="middle" font-size="1em" class="text-body">
+				Loading
+			</text>
+			<text x="50%" y="50%" dx="2.2em" dy=".32em" text-anchor="middle" font-size="1em" class="text-body">
+				...
+			</text>
+		</svg>
 	</div>
 </body>
 </html>
